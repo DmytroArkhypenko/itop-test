@@ -4,7 +4,7 @@ export const ButtonsContainer = styled.div`
   width: 500px;
   margin: auto;
   display: flex;
-  jsutify-content: space-beetween;
+  justify-content: center;
 `
 
 export const Button = styled.button`
