@@ -11,7 +11,7 @@ export const Timer = ({ timer }) => {
     setHours(Math.floor(timer / 3600))
     setMinutes(Math.floor(timer / 60) - hours * 60)
     setSeconds(timer - hours * 3600 - minutes * 60)
-  }, [timer])
+  }, [hours, minutes, timer])
 
   return (
     <Container>
