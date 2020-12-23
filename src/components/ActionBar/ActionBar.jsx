@@ -27,13 +27,23 @@ export const ActionBar = ({
     prevClick = currentTime
   }
 
+  const stopButtonAction = () => {
+    stopTimer()
+    resetTimer()
+  }
+
+  const resetButtonAction = () => {
+    resetTimer()
+    startTimer()
+  }
+
   return (
     <>
       {isActive ? (
         <ButtonsContainer>
-          <Button onClick={stopTimer}>Stop</Button>
+          <Button onClick={stopButtonAction}>Stop</Button>
           <Button onClick={(event) => onDoubleClickCheck(event)}>Wait</Button>
-          <Button onClick={resetTimer}>Reset</Button>
+          <Button onClick={resetButtonAction}>Reset</Button>
         </ButtonsContainer>
       ) : timer === 0 ? (
         <ButtonsContainer>
@@ -41,8 +51,8 @@ export const ActionBar = ({
         </ButtonsContainer>
       ) : (
         <ButtonsContainer>
-          <Button onClick={startTimer}>Resume</Button>
-          <Button onClick={resetTimer}>Reset</Button>
+          <Button onClick={startTimer}>Start</Button>
+          <Button onClick={resetButtonAction}>Reset</Button>
         </ButtonsContainer>
       )}
     </>
