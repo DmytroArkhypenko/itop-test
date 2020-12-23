@@ -9,7 +9,7 @@ import "./global.scss"
 const observableInterval = interval(1000)
 
 export const App = () => {
-  const [timer, setTimer] = useState(5854)
+  const [timer, setTimer] = useState(0)
   const [subscription, setSubscription] = useState()
   const [isActive, setIsActive] = useState(false)
 
