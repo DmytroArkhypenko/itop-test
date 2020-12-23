@@ -10,7 +10,7 @@ const observableInterval = interval(1000)
 
 export const App = () => {
   const [timer, setTimer] = useState(0)
-  const [subscription, setSubscription] = useState()
+  const [subscription, setSubscription] = useState(null)
   const [isActive, setIsActive] = useState(false)
 
   const startTimer = () => {
@@ -26,13 +26,25 @@ export const App = () => {
 
   const stopTimer = () => {
     subscription.unsubscribe()
+    setSubscription(null)
+    setIsActive(false)
+    setTimer(0)
+  }
+
+  const pauseTimer = () => {
+    subscription.unsubscribe()
+    setSubscription(null)
     setIsActive(false)
   }
 
   const resetTimer = () => {
-    subscription.unsubscribe()
     setIsActive(false)
     setTimer(0)
+    if (subscription) {
+      subscription.unsubscribe()
+      setSubscription(null)
+    }
+    setTimeout((startTimer(), 500))
   }
 
   return (
@@ -45,6 +57,7 @@ export const App = () => {
           startTimer={startTimer}
           stopTimer={stopTimer}
           resetTimer={resetTimer}
+          pauseTimer={pauseTimer}
         />
       </div>
     </Container>

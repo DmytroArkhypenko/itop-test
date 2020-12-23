@@ -9,6 +9,7 @@ export const ActionBar = ({
   startTimer,
   stopTimer,
   resetTimer,
+  pauseTimer,
 }) => {
   let prevClick
   let timeout
@@ -17,7 +18,7 @@ export const ActionBar = ({
     const tapLength = currentTime - prevClick
     clearTimeout(timeout)
     if (tapLength < 300 && tapLength > 0) {
-      stopTimer()
+      pauseTimer()
       event.preventDefault()
     } else {
       timeout = setTimeout(() => {
@@ -27,13 +28,8 @@ export const ActionBar = ({
     prevClick = currentTime
   }
 
-  const stopButtonAction = () => {
+  const reset = () => {
     stopTimer()
-    resetTimer()
-  }
-
-  const resetButtonAction = () => {
-    resetTimer()
     startTimer()
   }
 
@@ -41,9 +37,9 @@ export const ActionBar = ({
     <>
       {isActive ? (
         <ButtonsContainer>
-          <Button onClick={stopButtonAction}>Stop</Button>
+          <Button onClick={stopTimer}>Stop</Button>
           <Button onClick={(event) => onDoubleClickCheck(event)}>Wait</Button>
-          <Button onClick={resetButtonAction}>Reset</Button>
+          <Button onClick={resetTimer}>Reset</Button>
         </ButtonsContainer>
       ) : timer === 0 ? (
         <ButtonsContainer>
@@ -52,7 +48,7 @@ export const ActionBar = ({
       ) : (
         <ButtonsContainer>
           <Button onClick={startTimer}>Start</Button>
-          <Button onClick={resetButtonAction}>Reset</Button>
+          <Button onClick={reset}>Reset</Button>
         </ButtonsContainer>
       )}
     </>
@@ -65,4 +61,5 @@ ActionBar.propTypes = {
   stopTimer: PropTypes.func.isRequired,
   resetTimer: PropTypes.func.isRequired,
   timer: PropTypes.number.isRequired,
+  pauseTimer: PropTypes.func.isRequired,
 }
