@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/itop-test/static/css/main.4593fad6.chunk.css",
-    "main.js": "/itop-test/static/js/main.8f0385d9.chunk.js",
-    "main.js.map": "/itop-test/static/js/main.8f0385d9.chunk.js.map",
+    "main.js": "/itop-test/static/js/main.b5f8cdb1.chunk.js",
+    "main.js.map": "/itop-test/static/js/main.b5f8cdb1.chunk.js.map",
     "runtime-main.js": "/itop-test/static/js/runtime-main.049d0015.js",
     "runtime-main.js.map": "/itop-test/static/js/runtime-main.049d0015.js.map",
     "static/js/2.4ee57f39.chunk.js": "/itop-test/static/js/2.4ee57f39.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.049d0015.js",
     "static/js/2.4ee57f39.chunk.js",
     "static/css/main.4593fad6.chunk.css",
-    "static/js/main.8f0385d9.chunk.js"
+    "static/js/main.b5f8cdb1.chunk.js"
   ]
 }
